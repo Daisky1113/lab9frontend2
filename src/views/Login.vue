@@ -7,4 +7,5 @@
 </template>
 
 <script>
+import LoginForm from "../components/Loginform";
 </script>
