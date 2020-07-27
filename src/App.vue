@@ -2,20 +2,20 @@
   <v-app>
     <Header />
     <v-main>
-      <HelloWorld />
+      <Login />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Login from "./views/Login";
 import Header from "./components/Header";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld,
+    Login,
     Header,
   },
 
