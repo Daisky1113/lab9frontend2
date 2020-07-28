@@ -7,19 +7,19 @@
           <th class="text-center">Name</th>
           <th class="text-center">
             技術点
-            <v-btn @click="sortMembersData" icon>
+            <v-btn @click="sortMembersData('tecPoint')" icon>
               <v-icon>mdi-arrow-down</v-icon>
             </v-btn>
           </th>
           <th class="text-center">
             サービス点
-            <v-btn icon>
+            <v-btn @click="sortMembersData('servicePoint')" icon>
               <v-icon>mdi-arrow-down</v-icon>
             </v-btn>
           </th>
           <th class="text-center">
             総合点
-            <v-btn icon>
+            <v-btn @click="sortMembersData('total')" icon>
               <v-icon>mdi-arrow-down</v-icon>
             </v-btn>
           </th>
@@ -53,10 +53,22 @@ export default {
     })),
   }),
   methods: {
-    sortMembersData() {
-      this.membersData.sort((a, b) => {
-        return a.tecPoint > b.tecPoint ? -1 : 1;
-      });
+    sortMembersData(sortType) {
+      switch (sortType) {
+        case "tecPoint":
+        case "servicePoint":
+          this.membersData.sort((a, b) => {
+            return a[sortType] > b[sortType] ? -1 : 1;
+          });
+          break;
+        case "total":
+          this.membersData.sort((a, b) => {
+            return a.tecPoint + a.servicePoint > b.tecPoint + b.servicePoint
+              ? -1
+              : 1;
+          });
+          break;
+      }
     },
   },
 };
