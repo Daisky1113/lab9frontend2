@@ -8,19 +8,22 @@
           <th class="text-center">
             技術点
             <v-btn @click="sortMembersData('tecPoint')" icon>
-              <v-icon>mdi-arrow-down</v-icon>
+              <v-icon v-if="orderStates.tecPoint.desc">mdi-arrow-down</v-icon>
+              <v-icon v-if="!orderStates.tecPoint.desc">mdi-arrow-up</v-icon>
             </v-btn>
           </th>
           <th class="text-center">
             サービス点
             <v-btn @click="sortMembersData('servicePoint')" icon>
-              <v-icon>mdi-arrow-down</v-icon>
+              <v-icon v-if="orderStates.servicePoint.desc">mdi-arrow-down</v-icon>
+              <v-icon v-if="!orderStates.servicePoint.desc">mdi-arrow-up</v-icon>
             </v-btn>
           </th>
           <th class="text-center">
             総合点
             <v-btn @click="sortMembersData('totalPoint')" icon>
-              <v-icon>mdi-arrow-down</v-icon>
+              <v-icon v-if="orderStates.totalPoint.desc">mdi-arrow-down</v-icon>
+              <v-icon v-if="!orderStates.totalPoint.desc">mdi-arrow-up</v-icon>
             </v-btn>
           </th>
         </tr>
