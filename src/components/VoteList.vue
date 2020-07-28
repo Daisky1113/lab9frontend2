@@ -43,6 +43,9 @@
 
 <script>
 export default {
+  mounted() {
+    this.sortMembersData("totalPoint");
+  },
   computed: {
     membersDataWithTotalPoint() {
       return this.membersData.map((member) => {
