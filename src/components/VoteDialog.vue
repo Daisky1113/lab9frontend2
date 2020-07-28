@@ -46,11 +46,15 @@
 
 <script>
 export default {
+  props: {
+    tecPoint: Number,
+    servicePoint: Number,
+  },
   computed: {
     inputData() {
       return {
-        tecPoint: 0,
-        servicePoint: 0,
+        tecPoint: this.tecPoint,
+        servicePoint: this.servicePoint,
       };
     },
   },
