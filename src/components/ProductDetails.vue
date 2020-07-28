@@ -30,6 +30,10 @@
         </v-col>
       </v-row>
     </v-card-text>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <slot name="btnArea"></slot>
+    </v-card-actions>
   </v-card>
 </template>
 <script>
