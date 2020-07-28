@@ -16,7 +16,7 @@
 // import Vote from "./views/Vote";
 // import List from "./views/List";
 // import ProductInfo from "./views/ProductInfo";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 
 export default {
   name: "App",
