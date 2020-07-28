@@ -5,9 +5,24 @@
         <tr>
           <th class="text-center">id</th>
           <th class="text-center">Name</th>
-          <th class="text-center">技術点</th>
-          <th class="text-center">サービス点</th>
-          <th class="text-center">総合点</th>
+          <th class="text-center">
+            技術点
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </th>
+          <th class="text-center">
+            サービス点
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </th>
+          <th class="text-center">
+            総合点
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </th>
         </tr>
       </thead>
       <tbody>
