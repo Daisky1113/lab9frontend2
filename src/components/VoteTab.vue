@@ -1,17 +1,9 @@
 <template>
   <v-card>
-    <v-toolbar flat color="primary" dark>
-      <v-toolbar-title>User Profile</v-toolbar-title>
-    </v-toolbar>
     <v-tabs vertical>
-      <v-tab>
-        <v-icon left>mdi-account</v-icon>Option 1
-      </v-tab>
-      <v-tab>
-        <v-icon left>mdi-lock</v-icon>Option 2
-      </v-tab>
-      <v-tab>
-        <v-icon left>mdi-access-point</v-icon>Option 3
+      <v-tab v-for="member in membersData" :key="'tab-' + member.id">
+        <v-icon left>mdi-account</v-icon>
+        {{ member.name }}
       </v-tab>
 
       <v-tab-item>
@@ -62,5 +54,13 @@
 export default {
   name: "VoteTab",
   data: () => ({}),
+  computed: {
+    membersData() {
+      return new Array(36).fill(null).map((el, index) => ({
+        id: index + 1,
+        name: "member-" + (index + 1),
+      }));
+    },
+  },
 };
 </script>
