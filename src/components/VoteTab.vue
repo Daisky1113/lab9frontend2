@@ -7,7 +7,13 @@
       </v-tab>
 
       <v-tab-item v-for="member in membersData" :key="'tabItem-' + member.id">
-        <ProductDetail />
+        <ProductDetail
+          :productOwner="member.name"
+          :productName="member.productName"
+          :tecTopix="member.tecTopix"
+          :tecDetail="member.tecDetail"
+          :serviceDetail="member.serviceDetail"
+        />
         <v-btn outlined @click="vote(member.id)">投票する</v-btn>
       </v-tab-item>
     </v-tabs>
