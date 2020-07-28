@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Vote from '../views/Vote.vue'
-import List from '../views/List.vue'
-import ProductInfo from '../views/ProductInfo.vue'
+// import Login from '../views/Login.vue'
+// import Vote from '../views/Vote.vue'
+// import List from '../views/List.vue'
+// import ProductInfo from '../views/ProductInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -12,22 +12,22 @@ const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
   },
   {
     path: '/vote',
     name: 'Vote',
-    component: Vote
+    component: () => import(/* webpackChunkName: "about" */ '../views/Vote.vue')
   },
   {
     path: '/list',
     name: 'List',
-    component: List
+    component: () => import(/* webpackChunkName: "about" */ '../views/List.vue')
   },
   {
     path: '/productInfo',
     name: 'ProductInfo',
-    component: ProductInfo
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductInfo.vue')
   },
   {
     path: '/about',
