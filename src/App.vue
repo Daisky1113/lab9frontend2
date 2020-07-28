@@ -2,20 +2,23 @@
   <v-app>
     <Header />
     <v-main>
-      <Login />
+      <!-- <Login /> -->
+      <Vote />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Login from "./views/Login";
+// import Login from "./views/Login";
+import Vote from "./views/Vote";
 import Header from "./components/Header";
 
 export default {
   name: "App",
 
   components: {
-    Login,
+    // Login,
+    Vote,
     Header,
   },
 
