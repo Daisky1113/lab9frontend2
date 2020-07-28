@@ -7,21 +7,19 @@
       </v-tab>
 
       <v-tab-item v-for="member in membersData" :key="'tabItem-' + member.id">
-        <v-card flat>
-          <v-card-text>
-            <p>Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.</p>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn outlined @click="vote(member.id)">投票する</v-btn>
-          </v-card-actions>
-        </v-card>
+        <ProductDetail />
+        <v-btn outlined @click="vote(member.id)">投票する</v-btn>
       </v-tab-item>
     </v-tabs>
   </v-card>
 </template>
 <script>
+import ProductDetail from "./ProductDetails";
 export default {
   name: "VoteTab",
+  components: {
+    ProductDetail,
+  },
   data: () => ({}),
   computed: {
     membersData() {
