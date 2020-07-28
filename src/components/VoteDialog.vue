@@ -12,7 +12,7 @@
           <v-row>
             <v-col cols="12">
               <p class="subtitle">技術点</p>
-              <v-radio-group row v-model="tecPoint">
+              <v-radio-group row v-model="inputData.tecPoint">
                 <v-radio
                   v-for="(n,index) in 'SABCD'.split('')"
                   :key="'tec-' + n"
@@ -23,7 +23,7 @@
             </v-col>
             <v-col cols="12">
               <p class="subtitle">サービス点</p>
-              <v-radio-group row v-model="servicePoint">
+              <v-radio-group row v-model="inputData.servicePoint">
                 <v-radio
                   v-for="(n,index) in 'SABCD'.split('')"
                   :key="'service-' + n"
@@ -51,12 +51,12 @@ export default {
     servicePoint: Number,
   },
   computed: {
-    // inputData() {
-    //   return {
-    //     tecPoint: 3,
-    //     servicePoint: 3,
-    //   };
-    // },
+    inputData() {
+      return {
+        tecPoint: this.tecPoint,
+        servicePoint: this.servicePoint,
+      };
+    },
   },
   data: () => ({
     dialog: false,
