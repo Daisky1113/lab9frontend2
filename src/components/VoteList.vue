@@ -14,8 +14,8 @@
         <tr v-for="member in membersData" :key="`tr-${member.id}`">
           <td class="text-center">{{ member.id }}</td>
           <td class="text-center">{{ member.name }}</td>
-          <td class="text-center">{{ member.tecPoint }}</td>
-          <td class="text-center">{{ member.servicePoint}}</td>
+          <td class="text-center">{{ member.tecPoint | pointToChars }}</td>
+          <td class="text-center">{{ member.servicePoint | pointToChars}}</td>
           <td class="text-center">{{ (member.tecPoint + member.servicePoint) / 2 }}</td>
         </tr>
       </tbody>
@@ -34,6 +34,9 @@ export default {
         servicePoint: Math.ceil(Math.random() * 5),
       }));
     },
+  },
+  filters: {
+    pointToChars: (point) => ["S", "A", "B", "C", "D"][point - 1],
   },
   data: () => ({}),
 };
