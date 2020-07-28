@@ -3,13 +3,13 @@
     <v-card-title>ログイン</v-card-title>
     <v-card-text>
       <v-text-field
-        v-modle="inputData.email"
+        v-model="inputData.email"
         outlined
         label="email"
         prepend-inner-icon="mdi-email-outline"
       ></v-text-field>
       <v-text-field
-        v-modle="inputData.password"
+        v-model="inputData.password"
         outlined
         type="password"
         label="password"

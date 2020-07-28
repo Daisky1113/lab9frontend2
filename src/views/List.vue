@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center" align="center">
       <v-col cols="12">
-        <VoteDialog />
+        <VoteDialog :tecPoint="3" :servicePoint="1" />
         <VoteList />
       </v-col>
     </v-row>

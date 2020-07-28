@@ -1,8 +1,14 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" align>
+    <v-row justify="center">
       <v-col cols="8">
-        <ProductDetail />
+        <ProductDetail
+          productOwner="member.name"
+          productName="member.productName"
+          tecTopix="member.tecTopix"
+          tecDetail="member.tecDetail"
+          serviceDetail="member.serviceDetail"
+        />
       </v-col>
       <v-col cols="4">
         <ProductForm />
