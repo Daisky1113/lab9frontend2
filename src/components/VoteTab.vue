@@ -13,8 +13,11 @@
           :tecTopix="member.tecTopix"
           :tecDetail="member.tecDetail"
           :serviceDetail="member.serviceDetail"
-        />
-        <v-btn outlined @click="vote(member.id)">投票する</v-btn>
+        >
+          <template #btnArea>
+            <v-btn outlined @click="vote(member.id)">投票する</v-btn>
+          </template>
+        </ProductDetail>
       </v-tab-item>
     </v-tabs>
   </v-card>
