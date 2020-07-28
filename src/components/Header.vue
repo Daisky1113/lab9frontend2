@@ -6,19 +6,19 @@
       <v-toolbar-title>Page title</v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <router-link :to="{ name: 'Vote'}">
+      <router-link active-class="current" :to="{ name: 'Vote'}">
         <v-btn icon>
           <v-icon>mdi-vote-outline</v-icon>
         </v-btn>
       </router-link>
 
-      <router-link :to="{ name: 'List'}">
+      <router-link active-class="current" :to="{ name: 'List'}">
         <v-btn icon>
           <v-icon>mdi-clipboard-text-outline</v-icon>
         </v-btn>
       </router-link>
 
-      <router-link :to="{ name: 'ProductInfo'}">
+      <router-link active-class="current" :to="{ name: 'ProductInfo'}">
         <v-btn icon>
           <v-icon>mdi-clipboard-edit-outline</v-icon>
         </v-btn>
@@ -35,5 +35,8 @@
 <style scoped>
 a {
   text-decoration: none;
+}
+.current .v-btn--icon .v-icon {
+  color: #ff80ab;
 }
 </style>
