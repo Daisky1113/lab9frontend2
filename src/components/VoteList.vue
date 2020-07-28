@@ -52,6 +52,17 @@ export default {
     pointToChars: (point) => ["S", "A", "B", "C", "D"][point - 1],
   },
   data: () => ({
+    orderStates: {
+      tecPoint: {
+        desc: false,
+      },
+      servicePoint: {
+        desc: false,
+      },
+      totalPoint: {
+        desc: false,
+      },
+    },
     membersData: new Array(36).fill(null).map((el, index) => ({
       id: index + 1,
       name: `member-${index + 1}`,
@@ -61,9 +72,17 @@ export default {
   }),
   methods: {
     sortMembersData(sortType) {
+      const c = this.orderStates[sortType].desc ? -1 : 1;
+      const d = this.orderStates[sortType].desc ? 1 : -1;
+
       this.membersData.sort((a, b) => {
-        return a[sortType] > b[sortType] ? -1 : 1;
+        return a[sortType] > b[sortType] ? c : d;
       });
+      this.toggleSortState(sortType);
+    },
+
+    toggleSortState(sortType) {
+      this.orderStates[sortType].desc = !this.orderStates[sortType].desc;
     },
   },
 };
