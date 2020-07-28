@@ -6,22 +6,34 @@
       <v-toolbar-title>Page title</v-toolbar-title>
 
       <v-spacer></v-spacer>
+      <router-link :to="{ name: 'Vote'}">
+        <v-btn icon>
+          <v-icon>mdi-vote-outline</v-icon>
+        </v-btn>
+      </router-link>
 
-      <v-btn icon>
-        <v-icon>mdi-vote-outline</v-icon>
-      </v-btn>
+      <router-link :to="{ name: 'List'}">
+        <v-btn icon>
+          <v-icon>mdi-clipboard-text-outline</v-icon>
+        </v-btn>
+      </router-link>
 
-      <v-btn icon>
-        <v-icon>mdi-clipboard-text-outline</v-icon>
-      </v-btn>
+      <router-link :to="{ name: 'ProductInfo'}">
+        <v-btn icon>
+          <v-icon>mdi-clipboard-edit-outline</v-icon>
+        </v-btn>
+      </router-link>
 
-      <v-btn icon>
-        <v-icon>mdi-clipboard-edit-outline</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-logout-variant</v-icon>
-      </v-btn>
+      <router-link :to="{ name: 'Login'}">
+        <v-btn icon>
+          <v-icon>mdi-logout-variant</v-icon>
+        </v-btn>
+      </router-link>
     </v-app-bar>
   </div>
 </template>
+<style scoped>
+a {
+  text-decoration: none;
+}
+</style>
