@@ -7,7 +7,7 @@
           <th class="text-center">Name</th>
           <th class="text-center">
             技術点
-            <v-btn icon>
+            <v-btn @click="sortMembersData" icon>
               <v-icon>mdi-arrow-down</v-icon>
             </v-btn>
           </th>
@@ -40,19 +40,24 @@
 
 <script>
 export default {
-  computed: {
-    membersData() {
-      return new Array(36).fill(null).map((el, index) => ({
-        id: index + 1,
-        name: `member-${index + 1}`,
-        tecPoint: Math.ceil(Math.random() * 5),
-        servicePoint: Math.ceil(Math.random() * 5),
-      }));
-    },
-  },
+  computed: {},
   filters: {
     pointToChars: (point) => ["S", "A", "B", "C", "D"][point - 1],
   },
-  data: () => ({}),
+  data: () => ({
+    membersData: new Array(36).fill(null).map((el, index) => ({
+      id: index + 1,
+      name: `member-${index + 1}`,
+      tecPoint: Math.ceil(Math.random() * 5),
+      servicePoint: Math.ceil(Math.random() * 5),
+    })),
+  }),
+  methods: {
+    sortMembersData() {
+      this.membersData.sort((a, b) => {
+        return a.tecPoint > b.tecPoint ? -1 : 1;
+      });
+    },
+  },
 };
 </script>
