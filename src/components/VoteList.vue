@@ -26,6 +26,7 @@
               <v-icon v-if="!orderStates.totalPoint.desc">mdi-arrow-up</v-icon>
             </v-btn>
           </th>
+          <th class="text-center">編集</th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +36,11 @@
           <td class="text-center">{{ member.tecPoint | pointToChars }}</td>
           <td class="text-center">{{ member.servicePoint | pointToChars}}</td>
           <td class="text-center">{{ member.totalPoint }}</td>
+          <td class="text-center">
+            <v-btn @click="edit(member.id)" icon>
+              <v-icon>mdi-pencil-plus-outline</v-icon>
+            </v-btn>
+          </td>
         </tr>
       </tbody>
     </template>
@@ -86,9 +92,11 @@ export default {
       });
       this.toggleSortState(sortType);
     },
-
     toggleSortState(sortType) {
       this.orderStates[sortType].desc = !this.orderStates[sortType].desc;
+    },
+    edit(id) {
+      console.log(id);
     },
   },
 };
