@@ -3,14 +3,20 @@
     <template v-slot:default>
       <thead>
         <tr>
-          <th class="text-left">Name</th>
-          <th class="text-left">Calories</th>
+          <th class="text-center">id</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">技術点</th>
+          <th class="text-center">サービス点</th>
+          <th class="text-center">総合点</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in desserts" :key="item.name">
-          <td>{{ item.name }}</td>
-          <td>{{ item.calories }}</td>
+        <tr v-for="member in membersData" :key="`tr-${member.id}`">
+          <td class="text-center">{{ member.id }}</td>
+          <td class="text-center">{{ member.name }}</td>
+          <td class="text-center">{{ member.tecPoint }}</td>
+          <td class="text-center">{{ member.servicePoint}}</td>
+          <td class="text-center">{{ (member.tecPoint + member.servicePoint) / 2 }}</td>
         </tr>
       </tbody>
     </template>
@@ -19,51 +25,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159,
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237,
-        },
-        {
-          name: "Eclair",
-          calories: 262,
-        },
-        {
-          name: "Cupcake",
-          calories: 305,
-        },
-        {
-          name: "Gingerbread",
-          calories: 356,
-        },
-        {
-          name: "Jelly bean",
-          calories: 375,
-        },
-        {
-          name: "Lollipop",
-          calories: 392,
-        },
-        {
-          name: "Honeycomb",
-          calories: 408,
-        },
-        {
-          name: "Donut",
-          calories: 452,
-        },
-        {
-          name: "KitKat",
-          calories: 518,
-        },
-      ],
-    };
+  computed: {
+    membersData() {
+      return new Array(36).fill(null).map((el, index) => ({
+        id: index + 1,
+        name: `member-${index + 1}`,
+        tecPoint: Math.ceil(Math.random() * 5),
+        servicePoint: Math.ceil(Math.random() * 5),
+      }));
+    },
   },
+  data: () => ({}),
 };
 </script>
