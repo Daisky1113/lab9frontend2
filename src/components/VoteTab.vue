@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     vote(id) {
+      this.$store.commit("openDialog");
       console.log(id);
     },
   },

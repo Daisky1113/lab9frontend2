@@ -96,6 +96,7 @@ export default {
       this.orderStates[sortType].desc = !this.orderStates[sortType].desc;
     },
     edit(id) {
+      this.$store.commit("openDialog");
       console.log(id);
     },
   },
