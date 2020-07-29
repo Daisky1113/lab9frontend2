@@ -1,9 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="360px">
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">Open Dialog</v-btn>
-      </template>
+    <v-dialog v-model="isDialogActive" persistent max-width="360px">
       <v-card>
         <v-card-title>
           <span class="headline">投票フォーム</span>
@@ -36,7 +33,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+          <v-btn color="blue darken-1" text @click="closeDialog">Close</v-btn>
           <v-btn color="blue darken-1" text @click="sendData">投票する</v-btn>
         </v-card-actions>
       </v-card>
@@ -51,6 +48,9 @@ export default {
     servicePoint: Number,
   },
   computed: {
+    isDialogActive() {
+      return this.$store.state.UI.dialog;
+    },
     inputData() {
       return {
         tecPoint: this.tecPoint,
@@ -58,13 +58,14 @@ export default {
       };
     },
   },
-  data: () => ({
-    dialog: false,
-  }),
+  data: () => ({}),
   methods: {
+    closeDialog() {
+      this.$store.commit("closeDialog");
+    },
     sendData() {
       console.log(this.inputData);
-      this.dialog = false;
+      this.closeDialog();
     },
   },
 };
