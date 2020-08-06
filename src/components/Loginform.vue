@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      ログインする
+      {{ titleText }}
       <v-spacer></v-spacer>
       <v-switch label="signup" v-model="isSignup"></v-switch>
     </v-card-title>
@@ -30,7 +30,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn @click="login" text>ログインする</v-btn>
+      <v-btn @click="login" text>{{ btnText }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -45,6 +45,14 @@ export default {
       password: "",
     },
   }),
+  computed: {
+    titleText() {
+      return this.isSignup ? "サインアップ" : "ログイン";
+    },
+    btnText() {
+      return this.isSignup ? "登録する" : "ログインする";
+    },
+  },
   methods: {
     login() {
       console.log(this.inputData);
