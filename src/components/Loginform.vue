@@ -1,7 +1,19 @@
 <template>
   <v-card>
-    <v-card-title>ログイン</v-card-title>
+    <v-card-title>
+      ログインする
+      <v-spacer></v-spacer>
+      <v-switch label="signup" v-model="isSignup"></v-switch>
+    </v-card-title>
     <v-card-text>
+      <v-text-field
+        v-if="isSignup"
+        v-model="inputData.userName"
+        outlined
+        label="name"
+        prepend-inner-icon="mdi-account-outline"
+      ></v-text-field>
+
       <v-text-field
         v-model="inputData.email"
         outlined
@@ -26,7 +38,9 @@
 export default {
   name: "LoginForm",
   data: () => ({
+    isSignup: false,
     inputData: {
+      userName: "",
       email: "",
       password: "",
     },
