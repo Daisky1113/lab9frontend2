@@ -37,6 +37,7 @@
 <script>
 export default {
   name: "LoginForm",
+
   data: () => ({
     isSignup: false,
     inputData: {
