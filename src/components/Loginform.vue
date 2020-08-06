@@ -30,7 +30,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn @click="login" text>{{ btnText }}</v-btn>
+      <v-btn @click="sendAuthRequest" text>{{ btnText }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -54,8 +54,20 @@ export default {
     },
   },
   methods: {
-    login() {
-      console.log(this.inputData);
+    sendAuthRequest() {
+      if (this.isSignup) {
+        this._signup();
+      } else {
+        this._login();
+      }
+    },
+    _login() {
+      // ログイン用メソッドをこの中にかく
+      console.log("login");
+    },
+    _signup() {
+      // サインアップ用のメソッドをこの中にかく
+      console.log("signup");
     },
   },
 };
