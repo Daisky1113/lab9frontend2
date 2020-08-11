@@ -35,6 +35,7 @@
   </v-card>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "LoginForm",
 
@@ -55,6 +56,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["signup", "login"]),
     sendAuthRequest() {
       if (this.isSignup) {
         this._signup();
@@ -64,11 +66,11 @@ export default {
     },
     _login() {
       // ログイン用メソッドをこの中にかく
-      console.log("login");
+      this.login();
     },
     _signup() {
       // サインアップ用のメソッドをこの中にかく
-      console.log("signup");
+      this.signup();
     },
   },
 };
