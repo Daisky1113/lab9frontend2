@@ -21,6 +21,21 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    signup({ commit }, payload) {
+      console.log('サインアップ')
+      console.log(commit)
+      console.log(payload)
+    },
+
+    login({ commit }, payload) {
+      console.log('ログイン')
+      console.log(commit)
+      console.log(payload)
+    },
+
+    logout() {
+      console.log('ログアウト')
+    },
   },
   modules: {
   }
