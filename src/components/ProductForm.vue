@@ -13,7 +13,7 @@
   </v-card>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 export default {
   name: "ProductInfo",
   props: {
@@ -28,6 +28,12 @@ export default {
     },
   }),
   methods: {
+    ...mapMutations([
+      "updateProductName",
+      "updatetecTopix",
+      "updatetecDetail",
+      "updateServiceDetail",
+    ]),
     ...mapActions(["postProductInfo"]),
     regist() {
       const inputs = Object.assign({}, this.inputData);
