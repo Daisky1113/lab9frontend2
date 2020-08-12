@@ -24,17 +24,9 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
-        this.$router.push(
-          { name: "ProductInfo" },
-          () => {},
-          () => {}
-        );
+        this.redirectToProductInfo();
       } else {
-        this.$router.push(
-          { name: "Login" },
-          () => {},
-          () => {}
-        );
+        this.redirectToLogin();
       }
     });
   },
@@ -50,5 +42,22 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    redirectToProductInfo() {
+      this.$router.push(
+        { name: "ProductInfo" },
+        () => {},
+        () => {}
+      );
+    },
+
+    redirectToLogin() {
+      this.$router.push(
+        { name: "Login" },
+        () => {},
+        () => {}
+      );
+    },
+  },
 };
 </script>
