@@ -31,9 +31,20 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async postProductInfo({ commit }, payload) {
+    async postProductInfo({ state, commit }, payload) {
       console.log(commit)
       console.log(payload)
+
+      const productData = {
+        productOwner: state.userName,
+        productName: payload.productName,
+        tecTopix: payload.tecTopix,
+        tecDetail: payload.tecDetail,
+        serviceDetail: payload.serviceDetail,
+      }
+
+      const docRef = firebase.firestore().collection('products').doc(state.uid)
+      await docRef.set(productData)
     },
     async signup({ commit }, payload) {
       console.log('サインアップ')
