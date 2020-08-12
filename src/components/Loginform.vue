@@ -66,11 +66,20 @@ export default {
     },
     _login() {
       // ログイン用メソッドをこの中にかく
-      this.login();
+      const payload = {
+        email: this.inputData.email,
+        passWord: this.inputData.password,
+      };
+      this.login(payload);
     },
     _signup() {
       // サインアップ用のメソッドをこの中にかく
-      this.signup();
+      const payload = {
+        userName: this.inputData.userName,
+        email: this.inputData.email,
+        passWord: this.inputData.password,
+      };
+      this.signup(payload);
     },
   },
 };
