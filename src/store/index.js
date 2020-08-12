@@ -49,6 +49,7 @@ export default new Vuex.Store({
       })
       console.log('displayName updated')
       console.log(user)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       commit('setUser', { uid: user.uid, displayName: user.displayName })
     },
 
@@ -60,6 +61,7 @@ export default new Vuex.Store({
       const response = await firebase.auth().signInWithEmailAndPassword(payload.email, payload.passWord)
       const user = response.user
       console.log(user)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       commit('setUser', { uid: user.uid, displayName: user.displayName })
     },
 
