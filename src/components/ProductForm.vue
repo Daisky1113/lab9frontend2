@@ -34,14 +34,7 @@ export default {
   props: {
     productData: Object,
   },
-  data: () => ({
-    inputData: {
-      productName: "",
-      tecTopix: "",
-      tecDetail: "",
-      serviceDetail: "",
-    },
-  }),
+  data: () => ({}),
   methods: {
     ...mapMutations([
       "updateProductName",
@@ -51,8 +44,7 @@ export default {
     ]),
     ...mapActions(["postProductInfo"]),
     regist() {
-      const inputs = Object.assign({}, this.inputData);
-      this.postProductInfo(inputs);
+      this.postProductInfo(this.productData);
     },
   },
 };
