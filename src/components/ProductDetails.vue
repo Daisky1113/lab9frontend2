@@ -10,8 +10,8 @@
           </v-avatar>
         </v-col>
         <v-col cols="10">
-          <p class="mb-4">created by {{ productOwner }}</p>
-          <h1 class="mb-4">{{ productName }}</h1>
+          <p class="mb-4">created by {{ productData.productOwner }}</p>
+          <h1 class="mb-4">{{ productData.productName }}</h1>
           <div class="mb-12 tec-topix">
             <v-chip
               v-for="(chip, index) in chips"
@@ -21,11 +21,11 @@
           </div>
           <div class="mb-12 tec-detail">
             <h2 class="mb-4">技術的こだわり</h2>
-            <p>{{ tecDetail }}</p>
+            <p>{{ productData.tecDetail }}</p>
           </div>
           <div class="mb-12 service-detail">
             <h2 class="mb-4">サービス的こだわり</h2>
-            <p>{{ serviceDetail }}</p>
+            <p>{{ productData.serviceDetail }}</p>
           </div>
         </v-col>
       </v-row>
@@ -40,6 +40,7 @@
 export default {
   name: "ProductDetails",
   props: {
+    productData: Object,
     productOwner: String,
     productName: String,
     tecTopix: String,
@@ -48,7 +49,7 @@ export default {
   },
   computed: {
     chips() {
-      return this.tecTopix.split(",");
+      return this.productData.tecTopix.split(",");
     },
   },
 };
