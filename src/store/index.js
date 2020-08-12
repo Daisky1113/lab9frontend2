@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import firebase from 'firebase'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -21,10 +21,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    signup({ commit }, payload) {
+    async signup({ commit }, payload) {
       console.log('サインアップ')
       console.log(commit)
       console.log(payload)
+
+      const response = await firebase.auth()
+        .createUserWithEmailAndPassword(payload.email, payload.passWord)
+      const user = response.user
+
+      console.log(user)
     },
 
     login({ commit }, payload) {
