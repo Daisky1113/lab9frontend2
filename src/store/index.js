@@ -45,7 +45,7 @@ export default new Vuex.Store({
       })
       console.log('displayName updated')
       console.log(user)
-
+      commit('setUser', { uid: user.uid, displayName: user.displayName })
     },
 
     login({ commit }, payload) {
