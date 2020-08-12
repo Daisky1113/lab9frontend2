@@ -37,10 +37,7 @@ export default new Vuex.Store({
 
       const productData = {
         productOwner: state.userName,
-        productName: payload.productName,
-        tecTopix: payload.tecTopix,
-        tecDetail: payload.tecDetail,
-        serviceDetail: payload.serviceDetail,
+        ...payload
       }
 
       const docRef = firebase.firestore().collection('products').doc(state.uid)

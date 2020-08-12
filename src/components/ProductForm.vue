@@ -27,7 +27,8 @@ export default {
   methods: {
     ...mapActions(["postProductInfo"]),
     regist() {
-      this.postProductInfo(this.inputData);
+      const inputs = Object.assign({}, this.inputData);
+      this.postProductInfo(inputs);
     },
   },
 };
