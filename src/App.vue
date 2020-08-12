@@ -18,13 +18,14 @@
 // import ProductInfo from "./views/ProductInfo";
 import firebase from "firebase";
 import Header from "./components/Header";
-
+import { mapMutations } from "vuex";
 export default {
   name: "App",
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
         this.redirectToProductInfo();
+        this.setUserWhenUserHasDisplayName(user);
       } else {
         this.redirectToLogin();
       }
@@ -43,6 +44,12 @@ export default {
     //
   }),
   methods: {
+    ...mapMutations(["setUser"]),
+    setUserWhenUserHasDisplayName(user) {
+      if (user.displayName != "") {
+        this.setUser({ uid: user.uid, displayName: user.displayName });
+      }
+    },
     redirectToProductInfo() {
       this.$router.push(
         { name: "ProductInfo" },
