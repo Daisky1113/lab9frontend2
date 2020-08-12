@@ -29,8 +29,17 @@ export default new Vuex.Store({
       const response = await firebase.auth()
         .createUserWithEmailAndPassword(payload.email, payload.passWord)
       const user = response.user
+      console.log('response')
 
+      // ユーザーオブジェクトにユーザー名を設定する
+      // このユーザーオブジェクトはfirebase.auth().currentUserの返り値と同じもの
+      // ログイン時はこのユーザーオブジェクトを使う
+      await user.updateProfile({
+        displayName: payload.userName
+      })
+      console.log('displayName updated')
       console.log(user)
+
     },
 
     login({ commit }, payload) {
