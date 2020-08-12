@@ -16,6 +16,9 @@
 import { mapActions } from "vuex";
 export default {
   name: "ProductInfo",
+  props: {
+    productData: Object,
+  },
   data: () => ({
     inputData: {
       productName: "",
