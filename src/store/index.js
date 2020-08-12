@@ -5,11 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    uid: null,
+    userName: '',
     UI: {
       dialog: false
     },
   },
   mutations: {
+    setUser(state, payload) {
+      state.uid = payload.uid
+      state.userName = payload.displayName
+    },
     toggleDialog(state) {
       state.UI.dialog = !state.UI.dialog
     },
