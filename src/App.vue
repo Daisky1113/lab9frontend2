@@ -18,7 +18,7 @@
 // import ProductInfo from "./views/ProductInfo";
 import firebase from "firebase";
 import Header from "./components/Header";
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
   name: "App",
   created() {
@@ -26,6 +26,7 @@ export default {
       if (user != null) {
         this.redirectToProductInfo();
         this.setUserWhenUserHasDisplayName(user);
+        this.getProductInfo(user.uid);
       } else {
         this.redirectToLogin();
       }
@@ -44,6 +45,7 @@ export default {
     //
   }),
   methods: {
+    ...mapActions(["getProductInfo"]),
     ...mapMutations(["setUser"]),
     setUserWhenUserHasDisplayName(user) {
       if (user.displayName != "") {
