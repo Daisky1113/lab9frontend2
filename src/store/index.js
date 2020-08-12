@@ -31,6 +31,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async postProductInfo({ commit }, payload) {
+      console.log(commit)
+      console.log(payload)
+    },
     async signup({ commit }, payload) {
       console.log('サインアップ')
       console.log(commit)
