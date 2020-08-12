@@ -7,11 +7,21 @@ export default new Vuex.Store({
   state: {
     uid: null,
     userName: '',
+    productInfo: {
+      productOwner: '',
+      productName: '',
+      tecTopix: '',
+      tecDetail: '',
+      serviceDetail: '',
+    },
     UI: {
       dialog: false
     },
   },
   mutations: {
+    setProductInfo(state, payload) {
+      Object.assign(state.productInfo, payload)
+    },
     setUser(state, payload) {
       state.uid = payload.uid
       state.userName = payload.displayName
