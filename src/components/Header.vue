@@ -4,8 +4,12 @@
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>Page title</v-toolbar-title>
-
       <v-spacer></v-spacer>
+      <v-chip class="ma-2" outlined text-color="white">
+        <v-avatar left>
+          <v-icon>mdi-account-circle</v-icon>
+        </v-avatar>userName
+      </v-chip>
       <router-link active-class="current" :to="{ name: 'Vote'}">
         <v-btn icon>
           <v-icon>mdi-vote-outline</v-icon>
