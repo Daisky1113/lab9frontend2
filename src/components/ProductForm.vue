@@ -13,6 +13,7 @@
   </v-card>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "ProductInfo",
   data: () => ({
@@ -24,8 +25,9 @@ export default {
     },
   }),
   methods: {
+    ...mapActions(["postProductInfo"]),
     regist() {
-      console.log(this.inputData);
+      this.postProductInfo(this.inputData);
     },
   },
 };
