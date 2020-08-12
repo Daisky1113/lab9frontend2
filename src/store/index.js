@@ -52,6 +52,7 @@ export default new Vuex.Store({
 
       const docRef = firebase.firestore().collection('products').doc(state.uid)
       await docRef.set(productData)
+      commit('setProductInfo', productData)
     },
     async signup({ commit }, payload) {
       console.log('サインアップ')
