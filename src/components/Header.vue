@@ -28,12 +28,9 @@
           <v-icon>mdi-clipboard-edit-outline</v-icon>
         </v-btn>
       </router-link>
-
-      <router-link :to="{ name: 'Login'}">
-        <v-btn icon>
-          <v-icon>mdi-logout-variant</v-icon>
-        </v-btn>
-      </router-link>
+      <v-btn @click="logout" icon>
+        <v-icon>mdi-logout-variant</v-icon>
+      </v-btn>
     </v-app-bar>
   </div>
 </template>
@@ -46,10 +43,13 @@ a {
 }
 </style>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   computed: {
     ...mapState(["userName"]),
+  },
+  methods: {
+    ...mapActions(["logout"]),
   },
 };
 </script>
