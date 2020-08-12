@@ -19,6 +19,18 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    updateProductName(state, productName) {
+      state.productInfo.productName = productName
+    },
+    updatetecTopix(state, tecTopix) {
+      state.productInfo.tecTopix = tecTopix
+    },
+    updatetecDetail(state, tecDetail) {
+      state.productInfo.tecDetail = tecDetail
+    },
+    updateServiceDetail(state, serviceDetail) {
+      state.productInfo.serviceDetail = serviceDetail
+    },
     setProductInfo(state, payload) {
       Object.assign(state.productInfo, payload)
     },
