@@ -3,6 +3,7 @@
     <v-row justify="center">
       <v-col cols="8">
         <ProductDetail
+          :productData="productInfo"
           productOwner="member.name"
           productName="member.productName"
           tecTopix="member.tecTopix"
