@@ -11,7 +11,7 @@
         />
       </v-col>
       <v-col cols="4">
-        <ProductForm />
+        <ProductForm :productData="productInfo" />
       </v-col>
     </v-row>
   </v-container>
@@ -19,8 +19,12 @@
 <script>
 import ProductForm from "../components/ProductForm";
 import ProductDetail from "../components/ProductDetails";
+import { mapState } from "vuex";
 export default {
   name: "ProductInfo",
+  computed: {
+    ...mapState(["productInfo"]),
+  },
   components: {
     ProductForm,
     ProductDetail,
