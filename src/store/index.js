@@ -41,6 +41,12 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async getProductInfo({ commit }, uid) {
+      const docRef = firebase.firestore().collection('products').doc(uid)
+      const snapshot = await docRef.get()
+      const doc = snapshot.data()
+      commit('setProductInfo', doc)
+    },
     async postProductInfo({ state, commit }, payload) {
       console.log(commit)
       console.log(payload)
