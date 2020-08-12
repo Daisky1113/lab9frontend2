@@ -16,6 +16,10 @@ export default new Vuex.Store({
       state.uid = payload.uid
       state.userName = payload.displayName
     },
+    clearUser(state) {
+      state.uid = null
+      state.userName = ''
+    },
     toggleDialog(state) {
       state.UI.dialog = !state.UI.dialog
     },
@@ -54,8 +58,10 @@ export default new Vuex.Store({
       console.log(payload)
     },
 
-    logout() {
+    logout({ commit }) {
       console.log('ログアウト')
+      firebase.auth().signOut()
+      commit('clearUser')
     },
   },
   modules: {
