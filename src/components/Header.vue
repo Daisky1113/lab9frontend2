@@ -8,7 +8,8 @@
       <v-chip class="ma-2" outlined text-color="white">
         <v-avatar left>
           <v-icon>mdi-account-circle</v-icon>
-        </v-avatar>userName
+        </v-avatar>
+        {{ userName }}
       </v-chip>
       <router-link active-class="current" :to="{ name: 'Vote'}">
         <v-btn icon>
@@ -44,3 +45,11 @@ a {
   color: #ff80ab;
 }
 </style>
+<script>
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["userName"]),
+  },
+};
+</script>
