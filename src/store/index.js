@@ -52,10 +52,15 @@ export default new Vuex.Store({
       commit('setUser', { uid: user.uid, displayName: user.displayName })
     },
 
-    login({ commit }, payload) {
+    async login({ commit }, payload) {
       console.log('ログイン')
       console.log(commit)
       console.log(payload)
+
+      const response = await firebase.auth().signInWithEmailAndPassword(payload.email, payload.passWord)
+      const user = response.user
+      console.log(user)
+      commit('setUser', { uid: user.uid, displayName: user.displayName })
     },
 
     logout({ commit }) {
